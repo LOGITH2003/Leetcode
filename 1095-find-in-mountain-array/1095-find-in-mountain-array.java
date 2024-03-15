@@ -24,9 +24,8 @@ class Solution {
             else
                 start = mid +1;
         }
-        //return start;
-        // System.out.println("set 0");
-        // //applying the binary search in ascending order size
+
+        //applying the binary search in ascending order size
         int set = start;
         end = start;
         start = 0;
@@ -40,7 +39,7 @@ class Solution {
             else
                 end = mid-1;
         } 
-
+        //applying the binary search in descending order size
         start = set+1;
         end = mountainArr.length()-1;
         while(start<=end)
@@ -53,24 +52,7 @@ class Solution {
             else
                 start = mid + 1;
         }
-
-        // System.out.println("set 1");
-        // //applying the binary search in descending order size
-        // start = set;
-        // end = mountainArr.length()-1;
-        
-        // while(start>=end)
-        // {
-        //     int mid = start+ (end - start)/2;
-        //     if(mountainArr.get(mid)==target)
-        //         return mid;
-        //     else if(mountainArr.get(mid)<target)
-        //         end = mid+1;
-        //     else
-        //         start = mid -1;
-        // }
-        
-        // // if the target is not in the array return -1;
-         return -1;
+        //if the element is not present in the array 
+        return -1;
     }
 }
