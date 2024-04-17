@@ -1,26 +1,20 @@
 class Solution {
     public int smallestDivisor(int[] nums, int threshold) {
-        int end = Arrays.stream(nums).max().getAsInt(),start = 1,answer = 0,mid = 0;
+        int end = Arrays.stream(nums).max().getAsInt(),start = 1,mid = 0;
 
-//         for(int n : nums)
-//             end += n;
-
+        // start approach using binary search
         while(start<=end){
 
             mid = start + (end -start)/2;
 
+            // to get the divided value
             int div = smallestDivisorValue(mid,nums);
-            if(start == end)
+            
+            if(start == end){
                 return mid;
+            }
             else if(div<=threshold){
-//                answer = mid;
                 end = mid;
-//                while(div<=threshold && mid!=0){
-//                    answer = mid;
-//                    mid-=1;
-//                    div = smallestDivisorValue(mid,nums);
-//                }
-//                return answer;
             }
             else{
                 start = mid+1;
@@ -38,8 +32,10 @@ class Solution {
 
             // if the  n divided by the target if the remain is 0
             // add the divided value otherwise add the divided value and plus one
+            
             if(n%target == 0)
                 count += n/target;
+            
             else
                 count += (n/target)+1;
         }
