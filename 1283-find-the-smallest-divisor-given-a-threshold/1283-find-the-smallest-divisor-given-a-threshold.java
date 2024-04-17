@@ -5,7 +5,7 @@ class Solution {
         // start approach using binary search
         while(start<=end){
 
-            mid = start + (end -start)/2;
+            mid = start + (end - start)/2;
 
             // to get the divided value
             int div = smallestDivisorValue(mid,nums);
