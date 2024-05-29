@@ -2,27 +2,35 @@ import java.math.BigInteger;
 class Solution {
     public int numSteps(String s) {
         
-        // Convert the binary string into an BigInteger
-        BigInteger n = new BigInteger(s,2);
         int count = 0;
+        char [] arr = s.toCharArray();
 
-        // Iterate until n becomes less than 1
-        while (n.compareTo(BigInteger.ONE)>0) {
+        for(int i = s.length()-1;i>0;i--){
+            if(arr[i]=='1'){
 
-            // Increment by one for each iteration
+                int index = i;
+                while(true){
+
+                    // condition 1:
+                    if(arr[index]=='0'){
+                        arr[index]='1';
+                        i++;
+                        break;
+                    }
+                    // condition 2:
+                    else if(arr[index]=='1' && index==0){
+                        count++;
+                        i++;
+                        break;
+                    }
+                    arr[index]='0';
+                    index--;
+                }
+            }
             count++;
-
-            // If n is even, divide by 2
-            // Else, increment the value of n by one
-            if (n.mod(BigInteger.valueOf(2)).equals(BigInteger.ZERO)) {
-                n = n.divide(BigInteger.TWO);
-            }
-            else{
-                n = n.add(BigInteger.ONE);
-            }
         }
 
-        // Return the count value
+
         return count;
         
     }
