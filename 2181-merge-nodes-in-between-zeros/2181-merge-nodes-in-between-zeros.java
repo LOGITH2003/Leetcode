@@ -10,6 +10,7 @@
  */
 class Solution {
     public ListNode mergeNodes(ListNode head) {
+        
         ListNode index = null, ans = null;
         int count = 0;
         while(head!=null){
